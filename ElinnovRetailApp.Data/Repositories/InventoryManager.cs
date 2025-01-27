@@ -6,10 +6,10 @@ using ElinnovRetail.Models.Entities;
 
 namespace ElinnovRetail.Data.Repositories
 {
-    public class InventoryManagerRepo : IInventoryManagerRepo
+    public class InventoryManager : IInventoryManager
     {
         private readonly RetailAppDbContext _context;
-        public InventoryManagerRepo(RetailAppDbContext context)
+        public InventoryManager(RetailAppDbContext context)
         {
             _context = context;
         }
