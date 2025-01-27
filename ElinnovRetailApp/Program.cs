@@ -11,7 +11,7 @@ namespace ElinnovRetail.App
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             var serviceProvider = SetupServices();
-            var inventory = serviceProvider.GetRequiredService<InventoryMain>();
+            var inventory = serviceProvider.GetRequiredService<InventoryManager>();
             inventory.Run();
         }
 
@@ -19,8 +19,8 @@ namespace ElinnovRetail.App
         {
             return new ServiceCollection()
             .AddScoped<RetailAppDbContext>()
-            .AddSingleton<InventoryMain>()
-            .AddScoped<IInventoryManager, InventoryManager>()
+            .AddSingleton<InventoryManager>()
+            .AddScoped<IInventoryManagerRepo, InventoryManager>()
             .BuildServiceProvider();
         }
     }

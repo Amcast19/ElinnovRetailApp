@@ -8,10 +8,10 @@ using static ElinnovRetail.Models.Common.Enums;
 
 namespace ElinnovRetail.App
 {
-    public class InventoryMain
+    public class InventoryManager
     {
-        private readonly IInventoryManager _inventoryManager;
-        public InventoryMain(IInventoryManager inventoryManager)
+        private readonly IInventoryManagerRepo _inventoryManager;
+        public InventoryManager(IInventoryManagerRepo inventoryManager)
         {
             _inventoryManager = inventoryManager;
         }
@@ -46,19 +46,19 @@ namespace ElinnovRetail.App
             switch (chosenMenuOption)
             {
                 case (int)ManageProductOptionsEnum.Add_Product:
-                    LoadAddProductUI();
+                    AddProduct();
                     break;
                 case (int)ManageProductOptionsEnum.Update_Product:
-                    LoadUpdateProductUI();
+                    UpdateProduct();
                     break;
                 case (int)ManageProductOptionsEnum.Remove_Product:
-                    LoadDeleteProductUI();
+                    RemoveProduct();
                     break;
                 case (int)ManageProductOptionsEnum.Product_List:
-                    LoadProductTableUI();
+                    ListProducts();
                     break;
                 case (int)ManageProductOptionsEnum.Show_Total_Value:
-                    LoadProductTotalValueUI();
+                    GetTotalValue();
                     break;
                 default:
                     //Reload the inventory main UI with warning message
@@ -72,7 +72,7 @@ namespace ElinnovRetail.App
         /// <summary>
         /// Displays the product add UI
         /// </summary>
-        public void LoadAddProductUI(string message = "")
+        public void AddProduct(string message = "")
         {
             while (true)
             {
@@ -111,7 +111,7 @@ namespace ElinnovRetail.App
         /// <summary>
         /// Displays the product update UI
         /// </summary>
-        public void LoadUpdateProductUI(string message = "")
+        public void UpdateProduct(string message = "")
         {
             while (true)
             {
@@ -153,7 +153,7 @@ namespace ElinnovRetail.App
         /// <summary>
         /// Displays the product delete confirmation UI
         /// </summary>
-        public void LoadDeleteProductUI(string message = "")
+        public void RemoveProduct(string message = "")
         {
             while (true)
             {
@@ -194,7 +194,7 @@ namespace ElinnovRetail.App
         /// <summary>
         /// Displays the products table UI
         /// </summary>
-        public void LoadProductTableUI()
+        public void ListProducts()
         {
             var tableHeaders = new List<string> { "Product Id", "Product Name", "Quantity", "Price" };
             while (true)
@@ -223,7 +223,7 @@ namespace ElinnovRetail.App
         /// <summary>
         /// Displays the total value of the inventory
         /// </summary>
-        public void LoadProductTotalValueUI()
+        public void GetTotalValue()
         {
             while (true)
             {

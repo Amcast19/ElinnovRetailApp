@@ -4,7 +4,7 @@ using ElinnovRetail.Models.Entities;
 
 namespace ElinnovRetail.Data.Repositories.Interfaces
 {
-    public interface IInventoryManager
+    public interface IInventoryManagerRepo
     {
         /// <summary>
         /// Adds a new <see cref="Product"/> to the product list.
